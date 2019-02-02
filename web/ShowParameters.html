@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ShowParamForm</title>
+</head>
+<body>
+    <h1 align="center">A Simple Form Using Post</h1>
+    <form action="ShowParameters" method="post">
+        Item Number: <input type="text" name="itemNum"><br>
+        Quantity: <input type="text" name="quantity"><br>
+        Price Each: <input type="text" name="price" value="$"><br>
+        Middle Initial: <input type="text" name="initial"><br>
+        Shipping Address:
+            <textarea name="address" rows="3" cols="40">
+
+            </textarea>
+            <br>
+        Credit Card: <br>
+        &nbsp;&nbsp; <input type="radio" name="cardType" value="Visa">Visa<br>
+        &nbsp;&nbsp; <input type="radio" name="cardType" value="Master Card">Master Card<br>
+        &nbsp;&nbsp; <input type="radio" name="cardType" value="Amex">American Express<br>
+        &nbsp;&nbsp; <input type="radio" name="cardType" value="Discover">Discover<br>
+        &nbsp;&nbsp; <input type="radio" name="cardType" value="Java SmartCard">Java SmartCard<br>
+        Credit Card Number:
+        <input type="password" name="cardNum"><br>
+        Repeat Credit Card Number:
+        <input type="password" name="cardNum"><br>
+        <div align="center">
+            <button type="submit">Submit</button>
+        </div>
+    </form>
+</body>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Context>
+    <WatchedResource>/WEB-INF/web.xml</WatchedResource>
+
+
+    <!--配置mysql数据库的连接池,
+        需要做的额外步骤是将mysql的Java驱动类放到tomcat的lib目录下
+        maxIdle 连接池中最多可空闲maxIdle个连接
+        minIdle 连接池中最少空闲maxIdle个连接
+        initialSize 初始化连接数目
+        maxWait 连接池中连接用完时,新的请求等待时间,毫秒
+        username 数据库用户名
+        password 数据库密码
+        -->
+    <Resource name="jdbc/mysql"
+              auth="Container"
+              type="javax.sql.DataSource"
+              username="root"
+              password="wow1996"
+              maxIdle="30"
+              maxWait="10000"
+              maxActive="100"
+              driverClassName="com.mysql.cj.jdbc.Driver"
+              url="jdbc:mysql://localhost:3306/test?useUnicode=true&amp;useSSL=false&amp;createDatabaseIfNotExist=true&amp;characterEncoding=utf8&amp;serverTimezone=UTC&amp;allowMultiQueries=true&amp;autoReconnect=true&amp;failOverReadOnly=false" />
+
+
+
+</Context>
