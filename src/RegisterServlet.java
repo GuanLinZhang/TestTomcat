@@ -3,13 +3,14 @@ import Service.RegisterService;
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(name = "Register",urlPatterns = "/Register")
-public class Register extends HttpServlet {
+@WebServlet(name = "RegisterServlet",urlPatterns = "/RegisterServlet")
+public class RegisterServlet extends HttpServlet {
     private RegisterService registerService;
 
     @Override
@@ -24,9 +25,10 @@ public class Register extends HttpServlet {
         String p = req.getParameter("userPass");
 
         //sign up
-        registerService.signUp(n, p);
+        registerService.signUp(n,p);
 
+        resp.addCookie(new Cookie("username", n));
         //redirect
-        resp.sendRedirect("/test/Welcome");
+        resp.sendRedirect("/test/WelcomeServlet");
     }
 }

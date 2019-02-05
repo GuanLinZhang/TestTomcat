@@ -10,12 +10,9 @@ import java.sql.SQLException;
 public class LoginService {
     private Connection conn;
 
-    public LoginService() {
-        DBHelper dbHelper = new DBHelper();
-        conn = dbHelper.getConn();
-    }
-
     public boolean verifying(String name, String password) {
+        DBHelper helper = new DBHelper();
+        conn = helper.getConn();
         PreparedStatement pstmt = null;
         try {
             pstmt = conn.prepareStatement("select username, password from test.userinfo where username = ? and password = ?");
@@ -27,13 +24,13 @@ public class LoginService {
             e.printStackTrace();
         } finally {
             try {
-                if (conn != null) {
-                    conn.close();
-                    conn = null;
-                }
                 if (pstmt != null) {
                     pstmt.close();
                     pstmt = null;
+                }
+                if (conn != null) {
+                    conn.close();
+                    conn = null;
                 }
             } catch (SQLException e) {
                 e.printStackTrace();

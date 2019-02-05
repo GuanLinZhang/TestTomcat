@@ -9,12 +9,10 @@ import java.sql.SQLException;
 public class RegisterService {
     private Connection conn;
 
-    public RegisterService() {
-        DBHelper dbHelper = new DBHelper();
-        conn = dbHelper.getConn();
-    }
 
     public void signUp(String name,String password) {
+        DBHelper helper = new DBHelper();
+        conn = helper.getConn();
 
         try {
             //insert data
@@ -26,6 +24,10 @@ public class RegisterService {
             pstmt.executeUpdate();
 
             //close connection
+            if (pstmt != null) {
+                pstmt.close();
+                pstmt = null;
+            }
             if (conn != null) {
                 conn.close();
                 conn = null;
