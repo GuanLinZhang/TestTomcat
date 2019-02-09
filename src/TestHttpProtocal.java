@@ -1,7 +1,7 @@
 import java.io.*;
 import java.net.Socket;
 
-public class TestHttpRequest {
+public class TestHttpProtocal {
     public static void main(String[] args) throws Exception {
         // establish the connection on server through socket
         // addr: localhost  port: 8080
